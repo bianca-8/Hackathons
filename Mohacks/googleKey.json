@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "scammy-project-402715",
+  "private_key_id": "fdbcf075fb5f9f54fc32526ac4628181fe67d162",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCYcK/uHexqET5c\nc0Y6dVdNQH8lj3PojbVhNaqYjHta83ReMrIU5/buvrOvBq8sMhtO9egHbrP0uIgR\nauOQf1shXPjebwMZt88tjhOnLGPI7g41wOgeucl+OkJALhJUnW7RRnTSokGOXgXy\n0de1t3Yu8o+Ht71iFqw0nuoUGcP51NpcPHeEvEaKiLVtW5V+kdkUD720J0xnuBx7\nayTOIlZY0gu4mzRK3Q+ttIffLRhG67qMDRKsQ5cnCCa6t1CDcKFp72hRrswAk7EM\nhouy7SH8e2zjFfT2x8DITcQNU2i9XkD8a4E+8mi1nap+C1jNWL55iKBLcPQ+omIZ\njCX8kg8RAgMBAAECggEAASzILFqKcJBYtdN1IHz4SuoC+N4Dz5BtDBZi7dlSV5N+\nC35SSU824+TwI1qWtc1ekMOcMdd4d1vHP7QeVCYpJIcQC33ZTSTRqdkZHW4eCEXO\ncfteRqNZsll+WnqIbWLHwIDtpFR4EyH2I4aaxiWneWno8Yu439VLJz4s0XIX5Lhs\nV/R6wInMhjX8fcI1GchGPQncmXgEqq1PCvyqGFc2y6uOodKnbifhsf0+E0VGmT7f\nIZXLf/62Bm3cfKMNQzWxwbs3NLfuFhWrBM6ZDXKBO2Wde4bKxj4IR6tpKxR2qdUv\nk4lA1Zl2zuQ7hoSLgZbM7wR3hHD7Asb2u/mLfiWOgQKBgQDRwS0IqdfcNwv73dW5\nm/KB2MGq5+vTLWuztC7Fw6suxCY40pt5sc42Cfu4XBGdJ3LSprPQwrdwh5tIQRmX\noRa27vu96e1cUWqHUNVS4EyynWT9CA2p2LAiTJgGi46bG15CyxrppRQgk2ID6eCB\niQ74PaBi2rUGaGIlGigFwLGI0QKBgQC6DJxo9FVWfg2yBkSdneMNVTpdYlBPgeWr\ndpyvns1+78fclqpk2qhsnXtT6Is8A82a0e/9KBglSOHrlu2IGSvggjASFJIV6K5W\nSASpoJ0tOESNz97F36nB++X4DC++FqQ+ccP0vOBrTZuK1L/UWRoPTmSEL6yPH6/r\nbt+c382yQQKBgEtgTw2g80hYo77T/hzgNKqCuT3wb+eIl/6RDonVAewhYtbioCqA\nQelbdxDOTSobZgDbFR09C+ytXpj9g/PgWKhOgzrBGKInQ8/ytWY94nIBa6weO8LA\ncrMwsSUQ+6Mzl5ELKdWyk+QM8pkTb7E9DpsYkk1T6N+vnS1WE/HVSDcxAoGBAKFx\nMgRtCORN68pwX/g5un2mWEgSeMgVWtuHyH0omv8sSMzkvKVZjE779LmiD7gbQL24\nsLyHnzQzYz+QrzurRATEU7xMt1tllmpuggVDx0AnFG3OVGx2IhOfZzXwNTmI4isB\ng14Ky96w8GjvJiq4ysE/cD+4Ms/bWkc85bN2DUNBAoGAXq21gzhROrglUqjDIZRG\nZxF1JmR3xKykZxbaAEeC5MlRlCA1gWt1a+UYk8PGLU4DWOc+Aa21m5mMn0JillTm\nD4sq6aE9qaSVsp3KJxTpjdPspvRvug81/jKRG88v/8d2oAwrBAlHFemtoJiGUxbY\ns+DOzbqt7SkHQsfc8PcdIwU=\n-----END PRIVATE KEY-----\n",
+  "client_email": "anyahuang@scammy-project-402715.iam.gserviceaccount.com",
+  "client_id": "101762129115277361421",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/anyahuang%40scammy-project-402715.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
