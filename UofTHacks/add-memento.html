@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container add-momento">
+    <div class="row align-items-center justify-content-center m-5">
+        <div class="col-md-12 add-form">
+            <form class="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h1 class="text-center mb-5">Add Your Memento</h1>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="titleInput" oninput="limitWords()" placeholder="Type your title..." name="title" aria-describedby="titleHelp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="text" class="form-label">Describe Your Memory</label>
+                    <textarea name="text" id="text" class="form-control" cols="30" rows="10" placeholder="What do you want to remember about this moment..." required></textarea>
+                </div>
+                <div class="row d-flex align-items-baseline justify-content-between">
+                    <div class="col-12 col-md-5">
+                        <a href="#" class="btn">
+                            Add Your Image!
+                            <img src="{% static 'img/polaroid.svg' %}" alt="camera">
+                        </a>
+                        <div>
+                            <div class="mb-3">
+                                <input type="file" class="form-control" id="img" name="img1" accept="image/*">
+                            </div>
+                            <div class="mb-3">
+                                <input type="file" class="form-control" id="img" name="img2" accept="image/*">
+                            </div>
+                            <div class="mb-3">
+                                <input type="file" class="form-control" id="img" name="img3" accept="image/*">
+                            </div>
+                            <small class="d-block mb-3">* You can choose up to 3 pictures.</small>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <a href="#" class="btn">
+                            Add Your Audio!
+                            <img src="{% static 'img/cassette.svg' %}" alt="camera">
+                        </a>
+                        <div>
+                            <div class="mb-3">
+                                <input type="file" class="form-control" id="audio" name="audio" accept="audio/*">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-between align-items-end">
+                    <div class="col-12 col-md-8">
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+<script type="text/javascript">
+    $(document).ready(function(){
+    $(".active").removeClass("active");
+    $("#MakeAMemento").addClass("active");
+    });
+</script>

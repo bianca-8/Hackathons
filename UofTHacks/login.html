@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container p-4">
+    <div class="row align-items-center justify-content-center" style="height: 70vh;">
+        <h2 class="text-center fs-1">Login</h2>
+        {% if messages %}
+          <ul class="messages">
+            <div class="alert alert-danger alert-dismissible fade show index-1" role="alert">
+              {% for message in messages %}
+                <strong>{{ message }}</strong> Please try again!
+                {% endfor %}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </ul>
+        {% endif %}
+        
+        <div class="col-md-5">
+            <form class="login" method="post">
+              {% csrf_token %}
+                <!-- Username input -->
+                <img src="{% static 'img/logo.svg' %}" alt="">
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="username">Username</label>
+                  <input type="text" id="username" class="form-control form-control-lg" name="username" required/>
+                </div>
+              
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="password">Password</label>
+                  <input type="password" id="password" class="form-control form-control-lg" name="password" required/>
+                </div>
+              
+                <!-- 2 column grid layout for inline styling -->
+                <div class="row mb-4">
+                  <div class="col d-flex justify-content-center">
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                      <label class="form-check-label" for="form2Example31"> Remember me </label>
+                    </div>
+                  </div>
+              
+                  <div class="col">
+                    <!-- Simple link -->
+                    <a href="#!" class="text-danger">Forgot password?</a>
+                  </div>
+                </div>
+              
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-danger btn-block mb-4 d-block mx-auto">Sign in</button>
+              
+                <!-- Register buttons -->
+                <div class="text-center">
+                  <p>Not a member? <a href="/register/" class="text-danger">Register</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row align-items-center justify-content-between" style="position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    z-index: -1;">
+      <div class="col-md-3">
+          <img src="/static/img/c1.png" class="w-100">
+      </div>
+      <div class="col-md-3">
+          <img src="/static/img/c2.png" class="w-100">
+      </div>
+  </div>
+</div>
+{% endblock %}

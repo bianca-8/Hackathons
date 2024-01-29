@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container p-4">
+    <div class="row align-items-center justify-content-center" style="height: 70vh;">
+        <h2 class="text-center fs-1">Register</h2>
+        {% if messages %}
+          <ul class="messages">
+            <div class="alert alert-danger alert-dismissible fade show index-1" role="alert">
+              {% for message in messages %}
+                <strong>{{ message }}</strong> Your email is invalid!
+                {% endfor %}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </ul>
+        {% endif %}
+        
+        <div class="col-md-5">
+            <form class="register" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+
+                <!-- Email input -->
+                <img src="{% static 'img/logo.svg' %}" alt="">
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="email">E-Mail</label>
+                    <input type="text" id="email" class="form-control form-control-lg" name="email" required/>
+                  </div>
+                
+                <!-- Username input -->
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="username">Username</label>
+                  <input type="text" id="username" class="form-control form-control-lg" name="username" required/>
+                </div>
+              
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="password">Password</label>
+                  <input type="password" id="password" class="form-control form-control-lg" name="password" required/>
+                </div>    
+                <div class="mb-3">
+                  <label for="img" class="form-label">Add Profile Pic</label>
+                  <input type="file" class="form-control" id="img" name="profile_pic" accept="image/*">
+                  
+              </div>
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-danger btn-block mb-4 d-block mx-auto">Register</button>
+              
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

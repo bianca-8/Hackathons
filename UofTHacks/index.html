@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Your Mementos{% endblock %}
+{% block content %}
+<section class="home">
+    <div class="container">
+        <div class="row">
+            {% if messages %}
+                <ul class="messages">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {% for message in messages %}
+                        <strong>{{ message }}</strong>
+                        {% endfor %}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </ul>
+            {% endif %}
+            {% if mementos %}
+                <div class="d-flex">
+                    <h1 class="mb-4 p-2">My Mementos</h1>
+                    <img src="/static/img/cassette.svg/" style="padding: 0; height: 60px; object-fit: cover;">
+                </div>
+                {% for memento in mementos %}
+                <div class="col-9 col-md-4 my-1 mb-4">
+                    <div class="card custom-card card-body">
+                        {% if memento.title|length > 24 %}
+                            <h1 class="title-font">{{ memento.title|slice:":24" }}...</h1>
+                        {% else %}
+                            <h1 class="title-font">{{ memento.title }}</h1>
+                        {% endif %}
+            
+                        <div id="imageSlider{{ memento.id }}" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                {% if memento.img1 %}
+                                    <div class="carousel-item active">
+                                        <img src="{{ memento.img1.url }}" class="d-block w-100" alt="Image 1">
+                                    </div>
+                                {% endif %}
+                                {% if memento.img2 and not memento.img1 %}
+                                    <div class="carousel-item active">
+                                        <img src="{{ memento.img2.url }}" class="d-block w-100" alt="Image 2">
+                                    </div>
+                                {% elif memento.img2 %}
+                                    <div class="carousel-item">
+                                        <img src="{{ memento.img2.url }}" class="d-block w-100" alt="Image 2">
+                                    </div>
+                                {% endif %}
+                                {% if memento.img3 and not memento.img1 and not memento.img2 %}
+                                    <div class="carousel-item active">
+                                        <img src="{{ memento.img3.url }}" class="d-block w-100" alt="Image 3">
+                                    </div>
+                                {% elif memento.img3 %}
+                                    <div class="carousel-item">
+                                        <img src="{{ memento.img3.url }}" class="d-block w-100" alt="Image 3">
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <button class="carousel-control-prev" type="button" data-bs-target="#imageSlider{{ memento.id }}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#imageSlider{{ memento.id }}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <p class="text-center my-3"><strong>Crafted on {{ memento.published_date|date:"F j, Y" }} with ❤️ </strong></p>
+                        <a href="{% url 'memento' id=memento.id %}" class="btn-danger btn btn-lg mb-2">Relive the Memory</a>
+                        <button type="button" class="btn btn-danger-2 mb-2" data-bs-toggle="modal" data-bs-target="#editModal{{ memento.id }}">
+                            <img src="{% static 'img/editicon.svg' %}" alt="Edit" style="width: 22px;">
+                        </button>
+                        <button type="button" class="btn btn-danger-2" data-bs-toggle="modal" data-bs-target="#deleteModal{{ memento.id }}">
+                            <img src="{% static 'img/trashicon.svg' %}" alt="Delete" style="width: 22px;">
+                        </button>
+                    </div>
+
+                        <!-- Delete Memento Modal -->
+                        <div class="modal fade" id="deleteModal{{ memento.id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ memento.id }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteModalLabel{{ memento.id }}">Delete Memento</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        {% if memento.title|length > 28 %}
+                                            <p>Are you sure you want to delete "{{ memento.title|wordwrap:28|slice:":28" }}"?</p>
+                                        {% else %}
+                                            <p>Are you sure you want to delete "{{ memento.title }}"?</p>
+                                        {% endif %}
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <a href="{% url 'delete-memento' id=memento.id %}" class="btn btn-danger">Yes, Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="editModal{{ memento.id }}" tabindex="-1" aria-labelledby="editModalLabel{{ memento.id }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteModalLabel{{ memento.id }}">Edit Memento</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        {% if memento.title|length > 28 %}
+                                            <p>Edit "{{ memento.title|wordwrap:28|slice:":28" }}"?</p>
+                                        {% else %}
+                                            <p>Edit "{{ memento.title}}"?</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <a href="{% url 'edit_memento' memento_id=memento.id %}" class="btn btn-danger">Yes, Edit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            {% else  %}
+                <h1 class="p-2">You Have No Mementos 😭</h1>
+                <a href="/add-memento/" class="btn-danger btn btn-lg d-inline-block w-auto p-2">Craft Now!!</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    $(".active").removeClass("active");
+    $("#MyMementos").addClass("active");
+    });
+</script>

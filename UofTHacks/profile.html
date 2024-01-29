@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<style>
+    body{
+        min-height: 100%;
+    }
+</style>
+<div class="container p-4 profile">
+    <h2 class="text-center py-3">User Profile</h2>
+    <div class="row align-items-center justify-content-center" style="height: 60vh;">
+        <div id="algn">
+            <div id="card">
+                <div id="upper-bg">
+                    {% if user_profile.profile_pic %}
+                <img class="profile-pic" src="{{ user_profile.profile_pic.url }}" alt="{{ user.username }}'s Profile Photo">
+                {% else %}
+                <div class="profile-photo-placeholder">
+                    <img class="profile-pic" src="{% static 'img/profilepic.svg' %}"
+                        alt="{{ user.username }}'s No Profile Photo">
+                </div>
+                {% endif %}
+                </div>
+                <div id="lower-bg">
+                  <div class="text">
+                    <p class="name">@{{user.username}}</p>
+                    <p class="title">{{user.email}}</p>
+                  </div>
+                  <div id="icons">
+                    <a href="#" class="ico"><img width="48" height="48" src="https://img.icons8.com/color/48/gmail-new.png" alt="gmail-new"/></a>
+                    <a href="#" class="ico">
+                      <img width="48" height="48" src="https://img.icons8.com/fluency/48/github.png" alt="github"/>
+                    </a>
+                    <a href="#" class="ico">
+                      <img width="48" height="48" src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin"/>
+                    </a>
+                    <a href="#" class="ico">
+                      <img width="48" height="48" src="https://img.icons8.com/color/48/facebook-new.png" alt="facebook-new"/>
+                    </a>
+                  </div>
+                  <div id="btn">
+                    <a href="/mementos/" class="msg">See Your Mementos</a>
+                  </div>
+                  <div id="l-c-s">
+                    <div class="num">
+                        <span>Total Mementos: {{ total_mementos }}</span>
+                    </div>
+                    <div class="num dvr"></div>
+                    <div class="num">
+                      <a href="/logout/" class="text-danger">Logout</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".active").removeClass("active");
+        $("#MyProfile").addClass("active");
+    });
+</script>
