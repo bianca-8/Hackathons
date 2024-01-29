@@ -1,0 +1,4 @@
+Django==4.2.6
+gunicorn==21.1.0
+python-dotenv==0.19.1
+
